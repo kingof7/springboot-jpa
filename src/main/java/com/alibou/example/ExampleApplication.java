@@ -10,8 +10,9 @@ public class ExampleApplication {
 	public static void main(String[] args) {
 		var ctx = SpringApplication.run(ExampleApplication.class, args);
 
-		MyFirstClass myFirstClass = ctx.getBean(MyFirstClass.class);
-		System.out.println(myFirstClass.sayHello());
+//		MyFirstClass myFirstClass = ctx.getBean("myFirstBean", MyFirstClass.class);
+		MyFirstService myFirstService = ctx.getBean(MyFirstService.class);
+		System.out.println(myFirstService.tellAStory());
 	}
 
 	// @Bean // MyFirstClass를 스프링 컨테이너의 빈으로 등록
