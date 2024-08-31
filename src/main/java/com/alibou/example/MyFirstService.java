@@ -10,7 +10,7 @@ public class MyFirstService {
     private final MyFirstClass myFirstClass; // 주입받는 필드에 final 붙여야함 1:1 이라서
 
 //    @Autowired, 생략가능
-    public MyFirstService(@Qualifier("bean1") MyFirstClass myFirstClass) { // dto 주입
+    public MyFirstService(MyFirstClass myFirstClass) { // dto 주입
         this.myFirstClass = myFirstClass;
     }
 
