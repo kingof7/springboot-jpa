@@ -7,14 +7,16 @@ import org.springframework.stereotype.Service;
 @Service
 public class MyFirstService {
 
-    private final MyFirstClass myFirstClass; // 주입받는 필드에 final 붙여야함 1:1 이라서
+    private MyFirstClass myFirstClass;
 
-//    @Autowired, 생략가능
-    public MyFirstService(MyFirstClass myFirstClass) { // dto 주입
+    @Autowired
+    public void injectDependencies(
+            @Qualifier("mySecondClass") MyFirstClass myFirstClass
+    ) {
         this.myFirstClass = myFirstClass;
     }
 
-    public String tellAStory() { // tellAStory()로 myFirstClass.sayHello()를 간접적으로 호출
+    public String tellAStory() {
         return "the dependency is saying : " + myFirstClass.sayHello();
     }
 
